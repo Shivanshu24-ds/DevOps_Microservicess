@@ -1,0 +1,41 @@
+./run_docker.sh
+[+] Building 87.8s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile                                                     2.1s 
+ => => transferring dockerfile: 32B                                                                      0.1s 
+ => [internal] load .dockerignore                                                                        1.2s 
+ => => transferring context: 2B                                                                          0.0s 
+ => [internal] load metadata for docker.io/library/python:3.7.3-stretch                                  5.8s 
+ => [auth] library/python:pull token for registry-1.docker.io                                            0.0s 
+ => [internal] load build context                                                                        0.4s 
+ => => transferring context: 2.55kB                                                                      0.0s 
+ => [1/4] FROM docker.io/library/python:3.7.3-stretch@sha256:205cafadbb7f0c48f2a6d655eb100a9675aa85e6e7  0.0s 
+ => CACHED [2/4] WORKDIR /app                                                                            0.0s 
+ => [3/4] COPY . app.py /app/                                                                            1.1s 
+ => [4/4] RUN pip install --no-cache-dir --upgrade pip &&     pip install --no-cache-dir -r requiremen  71.4s
+ => exporting to image                                                                                   6.4s 
+ => => exporting layers                                                                                  5.0s 
+ => => writing image sha256:f077c0d3a2dfae35df8c9eb6409a767ce77416b8ccf0e5fcab9edbba97251c4f             0.1s 
+ => => naming to docker.io/library/microproject                                                          0.1s 
+REPOSITORY                    TAG       IMAGE ID       CREATED         SIZE
+microproject                  latest    f077c0d3a2df   9 seconds ago   1.19GB
+<none>                        <none>    d07c846c59e0   8 hours ago     1.19GB
+gcr.io/k8s-minikube/kicbase   v0.0.39   67a4b1138d2d   3 days ago      1.05GB
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 653-771-197
+[2023-04-07 13:03:06,619] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-04-07 13:03:06,645] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-04-07 13:03:06,658] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-04-07 13:03:06,663] INFO in app: output prediction: [20.35373177134412]
+172.17.0.1 - - [07/Apr/2023 13:03:06] "POST /predict HTTP/1.1" 200 -
